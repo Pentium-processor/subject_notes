@@ -1,0 +1,530 @@
+1.1
+---
+
+
+1.1.1 Structure and Functions of a processor
+____________________________________________
+
+Cpu components and their functions:
+
+CU(Control Unit)- Decodes instructions. Controls the flow of data within the CPU. Generates signals to coordinate the actions of other computer components e.g.
+                  RAM,I/O devices, ALU(arithmetic logic unit)
+
+ALU(Arithmetic Logic Unit) - Performs arithmetic and logical operations within the CPU. 
+
+Cache - Special high speed memory used to store frequently used instructions and data. 
+ 
+Registers - Temporary storage/memory location inside the CPU used for a single specific purpose.
+
+
+Registers and their functions:
+
+Acculmulator - Stores the results from calculations. 
+
+Program Counter - Stores the memory address of the next instruction to be fetched from memory.
+                  When the memory address is moved to the memory address register, it will not remain empty, as it 
+                  will store the memory address of the following instruction by incrementing.
+
+CIR(Current Instruction Register) - Holds the current instruction to be executed, divided up into its operand and opcode.
+
+MAR(Memory Address Register) - Holds the address of a location that is to be read from or written to.
+
+MDR(Memory Data Register) - Temporarily stores data that has been read or data that needs to be written.
+
+Factors which affect cpu performance:
+
+    .clockspeed 
+    .number of cores
+    .cache size
+
+.The Von Neumann Architecture stores program instructions and data
+ in the same memory space and uses shared data buses. This leads to both 
+ program instructions and the data competing for more memory, leading to the 
+ Von Neumann performance overhead. 
+
+.The Havard Architecture stores program instructions and data into separate memory 
+ spaces and uses separate data buses. This allows for data and program instructions to 
+ be accessed at the same time. This leads to greater throughput. However, it requires more complex hardware. 
+
+
+
+Von Neumann Architecture:
+
+  .Stores data and program instructions in the same physical memory address. 
+
+  .Uses the same data bus for data/program instruction transfer. 
+
+  .2 cycles are required to execute a single instruction. 
+ 
+  .Program instructions and data cannot be accessed simultaneously. 
+
+  .Used in personal and small computers.
+
+
+Havard Architecture:
+
+  .Program instructions and data are stored in separate physical memory addresses. 
+
+  .Program instructions and data use separate data buses for transfer. 
+
+  .Program instructions require only 1 cycle to execute a single instruction. 
+
+  .Program instructions and data can be accessed simultaneously.
+
+  .Used in signal processing and microcontrollers. 
+
+
+Bus - A set of parallel wires that connects 2 or more components inside the CPU.
+
+Data Bus - A collection of parallel wires that transfers data and instructions between the CPU, main memory(RAM) and the I/O devices.
+           It is bidirectional, meaning that the CPU can send data to memory and vice versa.
+
+Control Bus - A collection of parallel wires that transfers control and command signals between the CPU, main memory and the I/O devices, in order to 
+              coordinate all computer operations.
+
+Address Bus - A collection of parallel wires that sends I/O addresses and memory addresses from the CPU to the memory.  
+
+
+System Bus - A collection of parallel wires that connects the internal components of a computer system such as the CPU and the main memory(RAM).
+
+,The system bus comprises of:
+
+    .data bus
+    .control bus
+    .address bus
+
+.CPU pipelining is the process of carrying out multiple instructions by overlapping stages of FDE. 
+
+.One reason why CPU pipelining is efficient is that all parts of a processor can be used in an instant. 
+ Another reason why it is efficient is that the CPU is not idle, thereby increasing the speed of execution. 
+ 
+CPU Pipelining diagram: 
+
+   Third instruction Second Instruction First Instruction
+      Fetch             Decode             Execute 
+
+
+The computer fetches the next instruction from the main memory RAM.
+The program counter stores the memory address of the next instruction to 
+be fetched from memory. The content of the program counter pointed to by the
+CPU gets transferred to the instruction register within the CPU.
+
+Fetch stage of the FDE(Fetch Decode Execute Cycle): 
+
+  The contents of the PC(Program Counter) are copied to the MAR(Memory Address Register).
+  Simultaneously, the program counter's value increments by 1, pointing to the next instruction. 
+  A read signal is sent alongside the control bus by the CU(Control Unit) and  a memory address is sent down the address bus
+  to the main memory(RAM(Random Access Memory)). The instruction stored at that memory address gets sent down 
+  the data bus to the MDR(Memory Data Register). A copy of the instruction stored in the MDR(Memory Data Register)
+  gets copied to the CIR(Current Instruction Register).
+
+
+Decode stage of the FDE(Fetch Decode Execute) Cycle:
+
+  The CU(Control Unit) interprets the instruction stored in the CIR(Current Instruction Register). The CIR(Current Instruction Register)
+  is split into 2 parts, the opcode(specifies what actions need to be performed) and the operands(detailing what values and memory addresses are needed). 
+  If more data is needed, the CU will prepare the signals for the next step. 
+
+
+Execute stage of the FDE(Fetch Decode Execute) Cycle: 
+
+  The decoded instruction is carried out. If a calculation needs to be performed, the ALU(Arithmetic Logic Unit) will perform
+  logical and arithmetic operations within the CPU and the result is temporarily stored in the acculmulator. The CPU might write back to RAM
+  or jump back to a memory address, by changing the value stored in the program counter. 
+
+
+1.1.2 Types of Processors
+_________________________
+
+RISC(Reduced Instruction Set Computer): 
+
+  In these processors, there is a small instruction set. Each instruction takes one cycle and requires approximately 1 line of code. 
+  Machine code instruction is usually fixed-length.
+  
+CISC(Complex Instruction Set Computer): 
+
+  In these processors, there is a large instruction set. These instructions are directly embedded into the hardware. The instruction 
+  is written in as few lines as possible. They are used in embedded systems and microcontrollers. The machine code instructions are variable length.
+
+Advantages of CISC(Complex Instruction Set Computer): 
+
+  .Quicker to code programs in. 
+
+  .The compiler does very little work to translate high-level programming language code into  
+   machine code. 
+
+  .The code is relatively short, meaning very little RAM is required to store the instructions. 
+
+    .CISC code can have fewer machine code instructions to be needed from the same task.
+    .CISC instructions are often variable-length and some take several clock cycles to complete.
+    .CISC instruction sets are common in many PC processors due to backwards compatibility
+
+Advantages of RISC(Reduced Instruction Set Computer): 
+   
+  . The hardware is simple to build, requiring fewer circuits to carry out complex instructions. 
+
+  .Since each instruction takes the same amount of time, cpu pipelining is possible. 
+
+  .RISC's use of RAM and software allows for better performance at lower costs. 
+
+  . Uses simpler control hardware which can reduce power use and heat output. 
+
+  
+
+
+
+A GPU acts as a coprocessor, offloading processor-intensive mathematical calculations
+from the CPU, allowing it to handle general purpose tasks. 
+
+A GPU's many simple processing units are optimized for high-throughput parallel work on similar calculation. 
+
+Data Transfer between CPU and GPU  takes time. Branching/dependencies underuse parallel hardware. 
+
+GPU usecases: 
+
+  .Scientific modelling and simulations. 
+
+  .Video and image processing and rendering. 
+
+  .Datamining and cryptocurrency mining. 
+
+  .AI training and and machine learning. 
+
+Unlike a CPU which comprises of individual cores, the
+GPU is made up of millions of smaller, simpler cores designed to handle 
+identical operations at the same time. 
+
+
+SIMD(Single Instruction, Multiple Data) - A computing technique where the GPU
+                                          applies the mathematical operation simultaneously
+                                          across a large block of data. 
+
+Multi Core processors refer to computer systems with more than one processing unit. 
+So, in theory it means that multiple jobs can be executed at once. However, in reality,
+software has to be programmed specifically to carry out multiple jobs at once. Many forms 
+of legacy software do not support this, showing that multi-core processors and parallel processing 
+have their limitations. 
+
+
+Parallel processing - A computing technique that enables a single program to be split into threads/sub-tasks 
+in order to be executed at the same time, reducing completion time. 
+
+MUltitasking - Enables different software to run at the same time on separate cores without any performance degradation. 
+
+Background task isolation - It allocates background tasks to separate cores, without slowing down foreground applications 
+   
+It maintains computer functionality and maintainability, if one program fails the other cores will continue to work on the
+ongoing tasks.
+
+Mutli-core CPU designs are designed to be avoid much higher clockspeed, which creates more heat. 
+
+1.1.3 - Input, Output, Storage
+------------------------------
+
+    Input Devices     Output Devices     Storage Devices
+
+     Keyboard           Monitor          HDD 
+     Mouse              Printer          CD/DVD 
+     Microphone         Speakers         Memory Card
+     Scanner            Projector        USB Drive 
+     Webcam             Headphones       SSD 
+
+
+
+
+
+Memory Management Techniques:
+
+  1. Paging 
+
+  2. Segmentation 
+
+Paging: 
+
+  A memory management technique where available memory is divided into fixed-sized chunks. 
+  Each page is allocated with a memory address. Paging does not display the contents. 
+
+Segmentation: 
+
+  A memory management technique where available memory is divided into different lengths of memory chunks. 
+  It contains both memory addresses and content of the pages. 
+
+
+Virtual memory is a memory management technique used by a computer's operating system 
+to make the computer appear to have more RAM than it actually does. It allows programs to run even 
+if there isn't enough RAM available. 
+
+Magnetic Storage: 
+
+  Speed - high read/write speeds. 
+
+  Durability - Can be easily damaged through dropping. The read head can easily get damaged. 
+
+  Capacity - 750GB - 3TB(3000 GB)
+
+  Portability - Poor portability 
+
+  Reliability - Can be used again and again. Can last for a good few years. 
+
+  Use - Used in desktop computers to store large files and programs. 
+
+
+Optical Storage: 
+
+  Use - Storage of small media files and documents 
+
+  Speed - moderate read/write speed. 
+
+  Portability - Very portable and light 
+
+  Capacity - 650MB (small)
+
+  Reliability - CD-Rs can only be written one, but are used over and over again. 
+                CD-RW can be used over and over again. 
+
+  Durability - Scratches can damage the data.
+
+ 
+Solid State Storage: 
+
+  Use - Desktop computers, laptop and tablets to store large files, programs and operating systems. 
+
+  Capacity - 64GB to 840GB(moderate)
+
+  Speed - Super Fast read/write speeds 
+
+  Portability - Very small and lightweight, making it extremely portable. 
+
+  Durability  - Has no moving parts making it very durable 
+
+  Reliability - Can be used over and over again. 
+
+
+Advantages of the Cloud(Virtual Storage): 
+
+   1. Accessibility - Files can be accessed from anywhere with an internet connection. 
+   
+   2. Collaboration - Multiple users can share and edit files easily. 
+
+   3. Scalability - Storage space can be increased on demand without new hardware. 
+
+   4. Backup & recovery - Reduces risk of data loss if local devices fail. 
+
+
+Disadvantages of the Cloud(Virtual Storage): 
+
+   1. Accessibility - Storage is unusable without a stable connection. 
+
+   2. Security risks - Data may be vulnerable to hacking or breaches. 
+
+   3. Ongoing Costs - Providers often charge subscription fees for large storage. 
+
+   4. Performance Issues - Uploading/Downloading files can be slower than local storage.
+
+
+Virtual Storage: 
+
+  Use - Used to store documents and media files online. This means that you can 
+        go to another computer and access your files provided that you have 
+        internet access. 
+
+  Capacity - Unlimited, provided you can pay for it. 
+
+  Speed -  Depends on network/bandwidth speeds. 
+           Poor bandwidth can cause uploading and downloading of large 
+           files to take a long time. 
+
+  Portability - It is virtual so you don't have anything physical to move around. 
+
+  Durability and Reliabilty - Providing that you keep up with payments and the company 
+                              looks after their storage devices - very durable and reliable. 
+
+
+Scheduling - The task of allocating CPU processor time amongst all running programs.
+
+What is the need for scheduling?: 
+
+   The operating system of a multi-tasking computer can have many programs running at the 
+   same time in memory. Each program is expected to run without any noticable  
+   delay. This is made possible by using scheduling. 
+
+
+Examples of pre-emptive scheduling techniques: 
+
+   1. Shortest remaining time 
+   
+   2. Round Robin. 
+
+   3. Multilevel feedback queues  
+
+Examples of Non pre-emptive scheduling techniques: 
+
+    1. First come First Served, Shortest Job 
+
+Scheduling Techniques: 
+  
+  1. First Come First Served. 
+
+  2. Shortest Job First. 
+ 
+  3. Shortest Time Remaining. 
+   
+  4. Round Robin 
+
+  5. Multi-level 
+
+Disadvantages and Advantages of First Come First Served: 
+
+   .It is a simple algorithm to implement. It also ensures that once a process starts, it will run to completion 
+    in minimal time.
+
+   .Once a job starts , it prevents other jobs from being processed until it is completed. 
+
+   .A job that needs to access a slow resource e.g. a printer, wastes processor time while it is waiting for that resource 
+
+   .It does not consider that some processors are short and others long. A long process will delay all the processes in the queue behind it
+
+
+
+Disadvantages and Advantages Of Shortest Job: 
+
+   .Ensures the maximum number of jobs are completed.
+   .It ensures that short jobs aren't kept waiting while long processes tie up CPU resources. 
+   .It minimises the average time a process takes to complete. 
+
+   .The scheduler can only estimate how long a job will take to complete, but its estimation could be wrong. 
+   .Particularly long jobs may take a long time to complete if shorter jobs continue to jump "the queue".
+
+
+Disadvantages and Advantages of Round Robin: 
+
+    1. It is simple to implemment. Round Robin is a good algorithm if all processes are more or less of similar priority and size. 
+ 
+    2. It does not consider that some processes are short and others are long. This makes Round Robin an inefficient way to allocate time and resources.
+
+
+Disadvantages and Advantages of Multi-level: 
+
+ .Makes sophisticated use of process priority. 
+  
+ .It ensures that higher priority processes run on time. 
+
+ .Complex to implement. 
+
+ .Not very efficient if all jobs have similar priority. 
+
+
+
+
+    
+
+
+Different Types of OS: 
+
+  1. Distributed 
+
+  2. Embedded 
+
+  3. Multi-tasking 
+
+  4. Multi-User 
+
+  5. Real-Time 
+
+Multi-tasking System: 
+
+  A single processor can appear to do more than 1 task simultaneously 
+  by scheduling processor time while other processes are running in the 
+  background. 
+
+Distributed Operating Systems: 
+
+  A distributed OS can coordinate the processing of a single job 
+  across multiple computers. 
+
+  The distribution of tasks is coordinated by the OS passing instructions 
+  
+  between computers. 
+
+
+Embedded systems: 
+
+ An embedded operating system is designed for a dedicated, 
+ single-purpose within a larger mechanical/electrical hardware 
+ system. These systems operate within strictly limited resources, such as minimal power and processing power. 
+
+
+Real-time Operating Systems: 
+
+  Real-time Operating Systems must respond extremely quickly to inputs. 
+  
+  May need to cope with many inputs simultaneously. 
+
+  Real-time operating systems are usually seen in safety-critical environments. 
+
+  If a hardware component fails, the OS must have failsafe to detect this 
+  and respond appropriately. 
+
+  There is hardware redundancy meaning that crucial components are duplicated
+  in the case that one fails.
+
+Virtual Machine: 
+
+  .Refers to software that allows you to run an operating system within another. 
+
+  .It is used to emulate machines. 
+
+  .A virtual machine can execute intermediate code 
+   e.g. Java virtual machine executes java bytecode. 
+
+Interrupt - A signal sent to the CPU from the hardware or the software.
+
+Interrupts: 
+
+   This is when the CPU needs to stop what it is doing and deal with something 
+   else which is most important. 
+
+   Interrupt Signals:
+
+      .An I/O devices send an interrupt 
+      .The printer runs out of paper 
+      .An error occurs in a program 
+      .A scheduling interrupt from the internal clock 
+      .Power Failure 
+
+The CPU checks at the end of each clock cycle if there are any interrupts to be processed. 
+If an interrupt is detected, the CPU will stop what it is doing and pushes the current contents 
+of its registers onto the stack. When the processing has finished, the values can be popped from the stack(topmost value is removed) 
+and reloaded into the CPU. 
+
+
+An ISR(Interrupt Service Routine) is a program that the computer executes when an interrupt occurs. 
+It tells the CPU how to respond to the event that triggered the interrupt. 
+
+Instruction Set - The complete collection of machine-code instructions a processor can understand and execute
+
+Doubling the number of cores, does not increase CPU performance as many programs 
+are not designed to utilise multiple cores. It also takes alot of time for the 
+cores to communicate with each other. Also, sequential/dependent work, overheads 
+or memory limits reduce parallelism. 
+
+CISC code can have fewer machine code instructions to be needed from the same task.
+
+CISC instructions are often variable-length and some take several clock cycles to complete.
+
+CISC instruction sets are common in many PC processors due to backwards 
+compatibility
+
+
+
+Examples of utility software: 
+  
+  .Disc Defragmentation 
+  
+  .Compression Software 
+
+  .Backup  
+
+  .Encryption software 
+
+  .

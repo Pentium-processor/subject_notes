@@ -1,0 +1,62 @@
+SI(System International) Units: 
+
+  1. Light Intensity(candela)
+  2. Temperature - Kelvin 
+  3. Time - seconds 
+  4. current - amperes 
+  5. amount - moles 
+  6. length - metres 
+  7. Mass - kilograms 
+
+Amplitude - The maximum displacement of a wave from its equilibrium position. Measured in metres. 
+
+Frequency - The number of waves/oscillations that pass through a specific point per second.  Measured in Hertz.
+
+Wavelength - The length of one complete oscillation. Measured in metres 
+
+Period - The time it takes for one oscillation. 
+
+phase - The position of a point on a wave cycle. 
+
+phase difference - How much a particle/wave lags behind another particle/wave. 
+
+specific charge - The charge to mass ratio of a charged ion, nucleus or atom. 
+
+rest energy - The energy of a particle when it is at rest. 
+
+rest mass - The mass of a particle when it is at rest. 
+
+electronvolt - A measure of the energy of an electron when a particle moves in a P.D of 1V.
+
+annhilation - The process where an anti-particle and particle come together and annihilate 
+              each other. 2 gamma photons are produced and move in opposite directions to conserve momentum. 
+
+Prefix Units:
+
+  Tera - 10^12
+  femto - 10^-15 
+  milli - 10^-3 
+  base - 10^0 = 1 
+  pico - 10^-12  
+  giga - 10^9 
+  Mega - 10^6 
+  Kilo - 10^3 
+ 
+photons - Discrete packets of EM radiation called quanta. 
+ 
+Transverse waves are particles/fields that are perpendicular to the direction of energy transfer. 
+
+.All electromagnetic waves in the EM spectrum are transverse. 
+
+.In a vacuum, all EM waves travel at the speed of light - 3 x 10^8 ms-1 
+
+.Longitudinal wave are particles/fields that are parallel to the direction of energy transfer. 
+
+.Ultrasound and sound are examples of longitudinal waves. 
+
+.Compression - Regions of longitudinal waves where air particles are closely packed together.
+
+rarefaction - Regions of longitudinal waves where air particles are far apart from one another. 
+
+
+antiparticle - A particle that has the rest mass as its regular matter counterpart, but has a different quantum number and opposite charge. 

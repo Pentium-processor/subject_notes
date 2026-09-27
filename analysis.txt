@@ -1,0 +1,105 @@
+
+Problem
+-------
+
+Your computer is eating up too much RAM(perhaps through memory-intensive processes), your PC is encountering thermal throttling, your fan rpm is sounding like a v8 car engine ,your disk usage is full and worst of 
+all; the computer you daily drive is slow. But here is the actual worst part: You have zero to no clue of what is actually causing this. 
+
+
+Now in order to amend all these issues, one must use a software solution. The reason why a  software solution is the most 
+viable way is that it tracks real-time information, meaning it can  update system stats such as how much memory is available, 
+how much memory is freed or how much of it is cached. From a programmer's perspective, it would be completely ineffective 
+to track core computer stats on paper. One reason behind this, is that the system stats are constantly changing. They are dynamic,
+not static. Take for instance, memory. Memory has to be constantly allocated and freed when dealing with a plethora of applications in 
+order to manage computing resources sustainably. To manually track this by hand, would be a daunting and arduous task as this way of approaching 
+the problem is inefficient as it only provides a snapshot of the processes on your system and would be utterly time-consuming. (Similar to the ps coreutil in linux)
+
+
+Who would use this solution?
+----------------------------
+
+This GUI system monitoring tool would prove to be the most ideal for computer enthusiasts/gearheads,gamers or just a regular linux user wanting a machine with fast response times.
+
+
+From my point of view, this system monitoring tool would cater to the needs of gamers. On an average, most gamers tend  to care about the raw performance of their 
+videogame running on their PCs(Personal Computers) so that they can play casually or competitively at a smooth FPS. If there were heavy daemon processes running 
+on the machine, high CPU/GPU load, while the person is playing, it could lead to frame drops, visual artifacts, in game stuttering during voicelines or low-fidelity graphics, thereby 
+ruining the overall player experience. The GUI system monitoring tool can play a part in rectifying this issue by ascertaining which applications are taking up 
+the most system resources, enabling the end-user to kill the correct processes in order to free up more system resources or set a clockspeed limit range e.g. 
+(800 Mhz - 2000 Mhz). This is because a high clockspeed has a knockon effect on other computer components as shown by the diagram below.. 
+
+HIGH CPU CLOCKSPEED ---------> INSTRUCTIONS PROCESSED FASTER  ------------> HIGH POWER CONSUMPTION ----------------> HEAT ---> HIGH FAN RPM --------> LOW BATTERY LIFE 
+
+This software tool could also be used by computer enthusiasts. This is mainly because computer enthusiasts care about every bit of performance they can squeeze 
+into their machines. My system monitoring tool would help them by showing vital information such as CPU temperatures, CPU frequencies, fan speeds or whether 
+their CPU is idle on a graphical dashboard, thereby helping them to improve the performance of their  machine. 
+
+
+
+Existing/similar Solutions: 
+
+ 1. Task Manager 
+
+ 2. S-tui 
+
+ 3. Top 
+
+
+Task Manager 
+------------ 
+
+Historical Overview
+-------------------
+
+    The original version of the iconic task manager application was first written by Dave Plummer in 1995 and ran 
+    natively on the windows NT kernel. His reason for creating the task manager was because he missed the command utilties of ps and top
+    found on unix-like operating systems. After creating a rough build of it, Dave Plummer brought it to work and shared it with his fellow
+    co-workers. The Windows NT designer Dave Cutler liked the program and gave Dave Plummer permission to add it to the window source
+    library.  
+
+Technical Explanation
+---------------------
+
+    The legacy version of task manager was written in 32-bit C++ and avoided the C runtime library alongside with functions for 
+    dynamically allocating memory on the heap e.g. malloc, calloc, realloc. Dave Plummer had the program designed for absolute
+    optimisation. This was evidenced as the final program was less than 85KB and was designed to run even when system resources 
+    were starved. To add on, it fetched all system information in one go. 
+
+
+TOP
+--- 
+
+Historical Overview 
+___________________
+
+The conceptual design of top actually didn't  come from Unix, the precursor to most operating systems today. 
+Instead, it was originally invented by DEC(Digital Equipment Coporation) for their OS called VMS(Virtual Memory System)
+which ran on VAX minicomputers. Then, in April 1984, a student at the Rice University set out to make a clone of the program. 
+He wrote the first implementation of top for BSD 4.1 UNIX.
+
+Technical Explanation
+---------------------
+
+Top is a unix command which is designed to provide real-time information about processes. 
+This includes process state, which user started the process, how much of the CPU 
+is it using and how long the CPU has spent on that process. In addition to this, it also shows a 
+PID(process ID) column associated with each process which is assigned by the init system as well 
+as how much physical,shared and virtual memory it is taking up. The top command displays process
+data In a tabular format. Above the tabular data, are more system stats such as uptime(how long the system has been running for), 
+the average system load in the last 1 minute, 5 minutes and 15 minutes. To add on, it also shows how many tasks are running in total
+as well as stating how many processes were in said state. 
+
+S-tui 
+----- 
+
+Technical Explanation 
+---------------------
+S-tui is an open-source github project written in python which displays system stats in a graph-like format. 
+This includes information about cpu sensor temperatures, fan rpm, individual core clockspeeds. It uses the python 
+dependencies of psutil and urwid. 
+
+
+
+
+
+ 

@@ -1,0 +1,57 @@
+ 
+
+1a)During the fetch stage, the program counter stores the memory address of the next instruction to 
+be fetched from memory. The program counter transfers the memory address of the instruction to the
+MAR(Memory Address Register). The program counter increments, pointing to the next instruction. An read signal is
+sent down the control bus. A memory address is sent down the address bus. The data stored at this memory address 
+gets sent down the data bus to the MDR(Memory Data Register). The MDR(Memory Data Register) copies the instruction 
+over to the CIR(Current Instruction Register)
+
+1b) program counter
+
+
+1c) Pipelining improves the performance of the CPU by overlapping multiple stages of the FDE cycle. 
+    This means the first instruction can be executed, the following instruction can be decoded and the 
+    instruction prior to that can be fetched. CPU pipelining ensures that the CPU is not idle and 
+    all parts of the CPU are available in an instant. 
+
+
+2)   A - data bus 
+
+     B - MAR(Memory Address Register)
+
+     C - PC(Program Counter)
+
+     D - MDR(Memory Data Register) 
+
+     E - Acculmulator
+
+
+3) The Von Neumann Architecture stores the program instructions and data 
+   in the same physical memory address space and uses shared data buses for 
+   data transfer. Whereas the Havard Architecture stores the program instructions 
+   and data in separate physical memory addess spaces and uses separate data buses 
+   for data transfer. In the Havard Architecture, only 1 cycle is required to 
+   execute a single instruction. Whereas in the Von Neumann Architecture, multiple 
+   cycles are required to execute a single instruction. In a Von Neumann architecture, 
+   instructions cannot be processed simultaneously. Whereas in a Havard Architecture, 
+   instructions can be processed simultaneously. A benefit of using the Havard Architecture 
+   is that it leads to greater throughput. A benefit of using the Von Neumann Architecture 
+   is that it is easier to implement.
+
+5bi) The acculmulator is used to store initial/intermediate values used by the ALU. During the execute stage, 
+    the ALU temporarily stores the results of calculations in the acculmulator. 
+
+5bii) The program counter copies the memory address to the MAR(Memory Address Register). The program counter 
+     increments, pointing to the next instruction. 
+
+5biii) MAR(Memory Address Register), MDR(Memory Data Register) CIR(Current Instruction Register)
+   
+9b(ii) RAM is the short-term memory of the computer. ROM is the long-term memory of the computer. 
+       RAM is volatile, meaning that data is lost when the computer is switched off. ROM is non-volatile, 
+       meaning the data is retained even when the computer is switched off. RAM stores the currently 
+       running instructions and data. Whereas ROM stores the bootstrap/startup instructions. 
+
+
+
+
